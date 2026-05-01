@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx6foiajhc8sy"]
+
+[ext_resource type="Texture2D" uid="uid://c6fe3rgw7uq0c" path="res://assets/crabzerbg.png" id="2_v0s81"]
+[ext_resource type="PackedScene" uid="uid://cju5rybawdhqf" path="res://scenes/trug.tscn" id="2_v1pa4"]
+[ext_resource type="PackedScene" uid="uid://cjovkwakrjeey" path="res://pause_menu.tscn" id="3_0cdu3"]
+
+[node name="Level3" type="Node2D"]
+
+[node name="Trug" parent="." instance=ExtResource("2_v1pa4")]
+position = Vector2(111, 465)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -10
+offset_right = 2271.0
+offset_bottom = 649.0
+texture = ExtResource("2_v0s81")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="UI" instance=ExtResource("3_0cdu3")]
+visible = false

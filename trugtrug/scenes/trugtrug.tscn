@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://jkb72dam1fg"]
+
+[ext_resource type="Script" path="res://scenes/trugtrug.gd" id="1_5dac7"]
+[ext_resource type="Texture2D" uid="uid://c40r4nirfxbns" path="res://assets/trugtrug.png" id="1_aly2t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj0or"]
+size = Vector2(752, 574)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6feqg"]
+size = Vector2(629, 521)
+
+[node name="trugtrug" type="CharacterBody2D"]
+script = ExtResource("1_5dac7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uj0or")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aly2t")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-17.5, 2.5)
+shape = SubResource("RectangleShape2D_6feqg")

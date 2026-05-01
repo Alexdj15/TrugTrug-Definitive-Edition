@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7neh4m3i6n45"]
+
+[ext_resource type="Texture2D" uid="uid://c40r4nirfxbns" path="res://assets/trugtrug.png" id="1_8ujgl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xq7om"]
+size = Vector2(752, 574)
+
+[node name="trugtrugcolbox" type="StaticBody2D"]
+scale = Vector2(0.1, 0.1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xq7om")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8ujgl")

@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckk58wjj2f0bc"]
+
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_b02c8"]
+[ext_resource type="PackedScene" uid="uid://c7neh4m3i6n45" path="res://scenes/trugtrugcolbox.tscn" id="1_jviih"]
+[ext_resource type="PackedScene" uid="uid://jkb72dam1fg" path="res://scenes/trugtrug.tscn" id="2_4xqo6"]
+[ext_resource type="PackedScene" uid="uid://cjovkwakrjeey" path="res://pause_menu.tscn" id="4_htthd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gbwv"]
+size = Vector2(78, 72)
+
+[node name="og_level" type="Node2D"]
+script = ExtResource("1_b02c8")
+
+[node name="trugtrug" parent="." instance=ExtResource("2_4xqo6")]
+position = Vector2(88, 445)
+scale = Vector2(0.15, 0.15)
+
+[node name="Camera2D" type="Camera2D" parent="trugtrug"]
+position = Vector2(-6.66678, 0)
+limit_left = 0
+
+[node name="TrugTrugparent" type="Node2D" parent="."]
+
+[node name="trugtrugcolbox" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(37, 620)
+
+[node name="trugtrugcolbox2" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(562, 545)
+
+[node name="trugtrugcolbox3" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(1156, 579)
+
+[node name="trugtrugcolbox4" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(1081, 532)
+
+[node name="trugtrugcolbox5" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(1006, 490)
+
+[node name="trugtrugcolbox6" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(637, 508)
+
+[node name="trugtrugcolbox7" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(487, 586)
+
+[node name="trugtrugcolbox8" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(336, 620)
+
+[node name="trugtrugcolbox9" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(411, 620)
+
+[node name="trugtrugcolbox10" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(261, 620)
+
+[node name="trugtrugcolbox11" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(187, 620)
+
+[node name="trugtrugcolbox12" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(112, 620)
+
+[node name="trugtrugcolbox13" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(1561, 581)
+
+[node name="trugtrugcolbox14" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(2405, 737)
+
+[node name="trugtrugcolbox15" parent="TrugTrugparent" instance=ExtResource("1_jviih")]
+position = Vector2(2005, 705)
+
+[node name="winzone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="winzone"]
+position = Vector2(2408, 667)
+shape = SubResource("RectangleShape2D_2gbwv")
+
+[node name="winlabel" type="Label" parent="."]
+offset_left = 2238.0
+offset_top = 450.0
+offset_right = 2614.0
+offset_bottom = 591.0
+theme_override_font_sizes/font_size = 50
+text = "You Trugged it!!
+Well Done!"
+
+[node name="WinTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="UI" instance=ExtResource("4_htthd")]
+visible = false
+
+[connection signal="area_entered" from="winzone" to="." method="_on_winzone_area_entered"]
+[connection signal="timeout" from="WinTimer" to="." method="_on_timer_timeout"]

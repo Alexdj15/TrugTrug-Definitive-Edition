@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cju5rybawdhqf"]
+
+[ext_resource type="Script" path="res://scenes/trug (2).gd" id="1_vxq88"]
+[ext_resource type="Texture2D" uid="uid://bhtu588x7gkoq" path="res://assets/TrugSprite_Stick1.png" id="2_nci7o"]
+[ext_resource type="Texture2D" uid="uid://rcmvwajneh0a" path="res://assets/TrugSprite_Stick2.png" id="3_bwy2a"]
+[ext_resource type="AudioStream" uid="uid://dgvovt0j61qj0" path="res://assets/trug_sfx.mp3" id="4_xmq3g"]
+
+[node name="Trug" type="CharacterBody2D"]
+script = ExtResource("1_vxq88")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-64, -80)
+polygon = PackedVector2Array(47, 146, 73, 146, 73, 143, 67, 143, 69, 55, 53, 55, 55, 143, 47, 143)
+
+[node name="Stick1" type="Sprite2D" parent="."]
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(0.230983, 0.230983)
+texture = ExtResource("2_nci7o")
+
+[node name="Stick2" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.230983, 0.230983)
+texture = ExtResource("3_bwy2a")
+
+[node name="Trug_Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Trug" type="Label" parent="."]
+visible = false
+offset_left = 16.0
+offset_top = -97.0
+offset_right = 64.0
+offset_bottom = -74.0
+text = "TRUG!"
+
+[node name="Trugsfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xmq3g")
+
+[connection signal="timeout" from="Trug_Timer" to="." method="_on_timer_timeout"]
