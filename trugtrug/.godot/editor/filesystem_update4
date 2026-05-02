@@ -1,10 +1,14 @@
+res://scenes/level_6.tscn
+res://scenes/level_5.tscn
+res://scenes/level_4.tscn
+res://scenes/level_4.gd
+res://scenes/level_5.gd
+res://scenes/level_6.gd
+res://scenes/levels.tscn
 res://scenes/main_menu.tscn
 res://pause_menu.tscn
-res://scenes/levels.tscn
 res://scenes/world.tscn
 res://scenes/level_2.tscn
 res://scenes/level_3.tscn
 res://scenes/trug.tscn
-res://scenes/trug (2).gd
-res://scenes/harpypath_follow.gd
-res://scenes/level_3_world.gd
+res://scenes/moving_platform_path.gd

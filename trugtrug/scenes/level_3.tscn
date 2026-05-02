@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bx6foiajhc8sy"]
+[gd_scene load_steps=15 format=4 uid="uid://bx6foiajhc8sy"]
 
 [ext_resource type="Script" path="res://scenes/level_3_world.gd" id="1_2eqp6"]
 [ext_resource type="Texture2D" uid="uid://c6fe3rgw7uq0c" path="res://assets/crabzerbg.png" id="2_v0s81"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cok7dts8067ff" path="res://assets/harpy.png" id="6_iwd8x"]
 [ext_resource type="AudioStream" uid="uid://d3fi86x3e0o3b" path="res://assets/sad_music.mp3" id="8_rrm1q"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0g77"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejpgc"]
 texture = ExtResource("4_vsaid")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -276,7 +276,7 @@ texture = ExtResource("4_vsaid")
 
 [sub_resource type="TileSet" id="TileSet_qnygy"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_o0g77")
+sources/0 = SubResource("TileSetAtlasSource_ejpgc")
 
 [sub_resource type="Curve2D" id="Curve2D_k1p6c"]
 _data = {
@@ -289,6 +289,9 @@ size = Vector2(35, 134)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugqj"]
 size = Vector2(97, 93)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f4kot"]
+normal = Vector2(1, 0)
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_2eqp6")
@@ -369,6 +372,11 @@ text = "Press Enter to exit the level
 
 [node name="win_timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_f4kot")
 
 [connection signal="body_entered" from="Path2D/PathFollow2D/enemy" to="Path2D/PathFollow2D" method="_on_enemy_body_entered"]
 [connection signal="body_entered" from="crabzer_area" to="." method="_on_crabzer_area_body_entered"]

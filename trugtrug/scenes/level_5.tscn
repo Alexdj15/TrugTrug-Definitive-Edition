@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc3letqvbl2b3"]
+
+[ext_resource type="Texture2D" uid="uid://c8s6kpkf3k8vx" path="res://assets/rapzerbg.png" id="1_dygdp"]
+[ext_resource type="PackedScene" uid="uid://cjovkwakrjeey" path="res://pause_menu.tscn" id="2_l3xeh"]
+
+[node name="level_5" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1879.0
+offset_bottom = 649.0
+texture = ExtResource("1_dygdp")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="UI" instance=ExtResource("2_l3xeh")]
+visible = false

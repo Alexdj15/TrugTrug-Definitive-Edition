@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjovkwakrjeey"]
+[gd_scene load_steps=5 format=3 uid="uid://cjovkwakrjeey"]
 
 [ext_resource type="Script" path="res://scenes/pause_menu (2).gd" id="1_6dkh4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k2q27"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3ihm"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykopo"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="pause_menu" type="Control"]
 process_mode = 3
@@ -30,12 +56,22 @@ alignment = 1
 
 [node name="resume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k2q27")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g3ihm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ykopo")
 text = "Resume"
 
 [node name="main_menu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k2q27")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g3ihm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ykopo")
 text = "Main Menu"
 
 [connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]

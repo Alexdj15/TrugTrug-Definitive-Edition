@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://4xv4dvu71l8g"]
+[gd_scene load_steps=12 format=3 uid="uid://4xv4dvu71l8g"]
 
 [ext_resource type="Texture2D" uid="uid://dbtqtkvmkd0nd" path="res://assets/trug+parkzer_cutscene2.png" id="1_mtm1v"]
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="2_ew305"]
 [ext_resource type="Script" path="res://scenes/title.gd" id="2_py3us"]
 [ext_resource type="Script" path="res://scenes/level_2.gd" id="3_r0ecy"]
 [ext_resource type="Script" path="res://scenes/level_3.gd" id="4_0msbs"]
+[ext_resource type="Script" path="res://scenes/level_4.gd" id="5_qcih5"]
+[ext_resource type="Script" path="res://scenes/level_5.gd" id="6_6xlgr"]
+[ext_resource type="Script" path="res://scenes/level_6.gd" id="7_g0hvb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0oer"]
 
@@ -116,6 +119,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_h0oer")
 theme_override_styles/hover = SubResource("StyleBoxFlat_thwec")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ts4am")
 text = "Level 4"
+script = ExtResource("5_qcih5")
 
 [node name="Level5" type="Button" parent="CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -127,6 +131,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_h0oer")
 theme_override_styles/hover = SubResource("StyleBoxFlat_thwec")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ts4am")
 text = "Level 5"
+script = ExtResource("6_6xlgr")
 
 [node name="Level6" type="Button" parent="CenterContainer/GridContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -138,6 +143,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_h0oer")
 theme_override_styles/hover = SubResource("StyleBoxFlat_thwec")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ts4am")
 text = "Level 6"
+script = ExtResource("7_g0hvb")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -156,3 +162,6 @@ script = ExtResource("2_py3us")
 [connection signal="pressed" from="CenterContainer/GridContainer/Level1" to="CenterContainer/GridContainer/Level1" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Level2" to="CenterContainer/GridContainer/Level2" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Level3" to="CenterContainer/GridContainer/Level3" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/Level4" to="CenterContainer/GridContainer/Level4" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/Level5" to="CenterContainer/GridContainer/Level5" method="_on_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/Level6" to="CenterContainer/GridContainer/Level6" method="_on_pressed"]

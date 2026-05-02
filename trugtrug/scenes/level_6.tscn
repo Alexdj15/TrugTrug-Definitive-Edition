@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy2d71v5nx7yf"]
+
+[ext_resource type="Texture2D" uid="uid://dvrd2soy0tlek" path="res://assets/trugdeathbg.png" id="1_hekxp"]
+[ext_resource type="PackedScene" uid="uid://cjovkwakrjeey" path="res://pause_menu.tscn" id="2_krf2f"]
+
+[node name="level_6" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1955.0
+offset_bottom = 648.0
+texture = ExtResource("1_hekxp")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="UI" instance=ExtResource("2_krf2f")]
+visible = false
