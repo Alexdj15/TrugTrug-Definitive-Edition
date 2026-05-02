@@ -1,9 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1777686930
+::res://::1777689942
 export_presets.cfg::TextFile::-1::1732229370::0::1::::<><>::
 icon.svg::CompressedTexture2D::2857228858089018739::1732227172::1777676295::1::::<><>::
-pause_menu.tscn::PackedScene::5434736319463608776::1777686930::0::1::::<><>::res://scenes/pause_menu (2).gd
-::res://assets/::1777687318
+pause_menu.tscn::PackedScene::5434736319463608776::1777689942::0::1::::<><>::res://scenes/pause_menu (2).gd
+::res://assets/::1777691673
 boar_enemy.png::CompressedTexture2D::1242801510044507374::1777455167::1777676296::1::::<><>::
 crabzer.png::CompressedTexture2D::5830776340244520249::1775100381::1777676296::1::::<><>::
 crabzerbg.png::CompressedTexture2D::6959311182344834292::1777523528::1777676296::1::::<><>::
@@ -13,6 +13,7 @@ croczer_nobg.png::CompressedTexture2D::3476776796927948298::1777249770::17776762
 harpy.png::CompressedTexture2D::5778078284293659991::1777687299::1777687320::1::::<><>::
 rapzer.png::CompressedTexture2D::1822698289632565411::1777249822::1777676296::1::::<><>::
 rapzer_walk.png::CompressedTexture2D::4569576082792469578::1777262583::1777676296::1::::<><>::
+sad_music.mp3::AudioStreamMP3::9135417893888395065::1777690798::1777691675::1::::<><>::
 stick.png::CompressedTexture2D::1675714776462644095::1777249504::1777676296::1::::<><>::
 stickwithoutbg.png::CompressedTexture2D::7504850079219619001::1777522136::1777676296::1::::<><>::
 trug1.png::CompressedTexture2D::6693629955665097920::1775025647::1777676295::1::::<><>::
@@ -29,29 +30,30 @@ trug_sfx.mp3::AudioStreamMP3::7624635622328635179::1777283445::1777676295::1::::
 Terrain (16x16).png::CompressedTexture2D::7465159895141492564::1777262548::1777676296::1::::<><>::
 Terrain (32x32).png::CompressedTexture2D::3243513898520202430::1777262480::1777676296::1::::<><>::
 world_tileset.png::CompressedTexture2D::6408377494270162433::1777262508::1777676296::1::::<><>::
-::res://scenes/::1777686930
+::res://scenes/::1777689943
 exit.gd::GDScript::-1::1777676391::0::1::::<>Button<>::
 GlobalManager.gd::GDScript::-1::1777676391::0::1::::<>Node<>::
-levels.tscn::PackedScene::2084284189681101860::1777686930::0::1::::<><>::uid://dbtqtkvmkd0nd::::res://assets/trug+parkzer_cutscene2.png<>res://scenes/level_1.gd<>res://scenes/title.gd<>res://scenes/level_2.gd<>res://scenes/level_3.gd
+levels.tscn::PackedScene::2084284189681101860::1777689942::0::1::::<><>::uid://dbtqtkvmkd0nd::::res://assets/trug+parkzer_cutscene2.png<>res://scenes/level_1.gd<>res://scenes/title.gd<>res://scenes/level_2.gd<>res://scenes/level_3.gd
 level_1.gd::GDScript::-1::1777676391::0::1::::<>Button<>::
 level_2.gd::GDScript::-1::1777676391::0::1::::<>Button<>::
-level_2.tscn::PackedScene::1590479927646900960::1777686930::0::1::::<><>::res://scenes/level_2_world.gd<>uid://h31mcsyphqkq::::res://assets/TrugBackground.png<>uid://demgdfjnji6x1::::res://assets/Terrain/Terrain (16x16).png<>uid://cju5rybawdhqf::::res://scenes/trug.tscn<>uid://rya020lb51ks::::res://assets/boar_enemy.png<>res://scenes/path_follow_2d.gd<>uid://cjovkwakrjeey::::res://pause_menu.tscn<>res://scenes/path_follow_stick.gd<>uid://de6n1wxnwoxmv::::res://assets/stickwithoutbg.png
+level_2.tscn::PackedScene::1590479927646900960::1777689943::0::1::::<><>::res://scenes/level_2_world.gd<>uid://h31mcsyphqkq::::res://assets/TrugBackground.png<>uid://demgdfjnji6x1::::res://assets/Terrain/Terrain (16x16).png<>uid://cju5rybawdhqf::::res://scenes/trug.tscn<>uid://rya020lb51ks::::res://assets/boar_enemy.png<>res://scenes/path_follow_2d.gd<>uid://cjovkwakrjeey::::res://pause_menu.tscn<>res://scenes/path_follow_stick.gd<>uid://de6n1wxnwoxmv::::res://assets/stickwithoutbg.png
 level_2_world.gd::GDScript::-1::1777676391::0::1::::<>Node2D<>::
 level_3.gd::GDScript::-1::1777676391::0::1::::<>Button<>::
-level_3.tscn::PackedScene::4065088804427391520::1777686930::0::1::::<><>::uid://c6fe3rgw7uq0c::::res://assets/crabzerbg.png<>uid://cju5rybawdhqf::::res://scenes/trug.tscn<>uid://cjovkwakrjeey::::res://pause_menu.tscn<>uid://demgdfjnji6x1::::res://assets/Terrain/Terrain (16x16).png
-main_menu.tscn::PackedScene::8375009806276334236::1777686930::0::1::::<><>::res://scenes/play.gd<>res://scenes/title.gd<>uid://dbtqtkvmkd0nd::::res://assets/trug+parkzer_cutscene2.png<>res://scenes/exit.gd
+level_3.tscn::PackedScene::4065088804427391520::1777689943::0::1::::<><>::uid://c6fe3rgw7uq0c::::res://assets/crabzerbg.png<>uid://cju5rybawdhqf::::res://scenes/trug.tscn<>uid://cjovkwakrjeey::::res://pause_menu.tscn<>uid://demgdfjnji6x1::::res://assets/Terrain/Terrain (16x16).png<>res://scenes/harpypath_follow.gd<>uid://cok7dts8067ff::::res://assets/harpy.png
+main_menu.tscn::PackedScene::8375009806276334236::1777689942::0::1::::<><>::res://scenes/play.gd<>res://scenes/title.gd<>uid://dbtqtkvmkd0nd::::res://assets/trug+parkzer_cutscene2.png<>res://scenes/exit.gd
 path_follow_2d.gd::GDScript::-1::1777676391::0::1::::<>PathFollow2D<>::
 path_follow_stick.gd::GDScript::-1::1777676391::0::1::::<>PathFollow2D<>::
 pause_menu (2).gd::GDScript::-1::1777676391::0::1::::<>Control<>::
 pause_menu.gd::GDScript::-1::1777456781::0::1::::<>Control<>::
 pause_menu.tscn::PackedScene::2374400702346941513::1777676457::0::1::::<><>::res://scenes/pause_menu (2).gd
 play.gd::GDScript::-1::1777676391::0::1::::<>Button<>::
+harpypath_follow.gd::GDScript::-1::1777687708::0::1::::<>PathFollow2D<>::
 title.gd::GDScript::-1::1777676391::0::1::::<>Label<>::
-trug (2).gd::GDScript::-1::1777686920::0::1::::<>CharacterBody2D<>::
+trug (2).gd::GDScript::-1::1777689062::0::1::::<>CharacterBody2D<>::
 trug.gd::GDScript::-1::1777522788::0::1::::<>CharacterBody2D<>::
-trug.tscn::PackedScene::5447681645623800057::1777686930::0::1::::<><>::res://scenes/trug (2).gd<>uid://bhtu588x7gkoq::::res://assets/TrugSprite_Stick1.png<>uid://rcmvwajneh0a::::res://assets/TrugSprite_Stick2.png<>uid://dgvovt0j61qj0::::res://assets/trug_sfx.mp3
+trug.tscn::PackedScene::5447681645623800057::1777689943::0::1::::<><>::res://scenes/trug (2).gd<>uid://bhtu588x7gkoq::::res://assets/TrugSprite_Stick1.png<>uid://rcmvwajneh0a::::res://assets/TrugSprite_Stick2.png<>uid://dgvovt0j61qj0::::res://assets/trug_sfx.mp3
 trugtrug.gd::GDScript::-1::1777676391::0::1::::<>CharacterBody2D<>::
 trugtrug.tscn::PackedScene::19190078101839512::1777259728::0::1::::<><>::res://scenes/trugtrug.gd<>uid://c40r4nirfxbns::::res://assets/trugtrug.png
 trugtrugcolbox.tscn::PackedScene::7045978186133339812::1777259728::0::1::::<><>::uid://c40r4nirfxbns::::res://assets/trugtrug.png
 world.gd::GDScript::-1::1777676391::0::1::::<>Node2D<>::
-world.tscn::PackedScene::5497255192151147456::1777686930::0::1::::<><>::res://scenes/world.gd<>uid://c7neh4m3i6n45::::res://scenes/trugtrugcolbox.tscn<>uid://jkb72dam1fg::::res://scenes/trugtrug.tscn<>uid://cjovkwakrjeey::::res://pause_menu.tscn
+world.tscn::PackedScene::5497255192151147456::1777689943::0::1::::<><>::res://scenes/world.gd<>uid://c7neh4m3i6n45::::res://scenes/trugtrugcolbox.tscn<>uid://jkb72dam1fg::::res://scenes/trugtrug.tscn<>uid://cjovkwakrjeey::::res://pause_menu.tscn

@@ -9,11 +9,11 @@
 script = ExtResource("1_vxq88")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-64, -80)
-polygon = PackedVector2Array(47, 146, 73, 146, 73, 143, 67, 143, 69, 55, 53, 55, 55, 143, 47, 143)
+position = Vector2(-63, -80)
+polygon = PackedVector2Array(70, 146, 70, 143, 67, 143, 69, 55, 53, 55, 55, 143, 55, 146)
 
 [node name="Stick1" type="Sprite2D" parent="."]
-position = Vector2(0, -5.96046e-08)
+position = Vector2(1, -5.96046e-08)
 scale = Vector2(0.230983, 0.230983)
 texture = ExtResource("2_nci7o")
 
@@ -37,7 +37,7 @@ text = "TRUG!"
 stream = ExtResource("4_xmq3g")
 
 [node name="coyote" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.2
 one_shot = true
 
 [connection signal="timeout" from="Trug_Timer" to="." method="_on_timer_timeout"]

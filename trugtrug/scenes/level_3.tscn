@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://bx6foiajhc8sy"]
+[gd_scene load_steps=14 format=4 uid="uid://bx6foiajhc8sy"]
 
+[ext_resource type="Script" path="res://scenes/level_3_world.gd" id="1_2eqp6"]
 [ext_resource type="Texture2D" uid="uid://c6fe3rgw7uq0c" path="res://assets/crabzerbg.png" id="2_v0s81"]
 [ext_resource type="PackedScene" uid="uid://cju5rybawdhqf" path="res://scenes/trug.tscn" id="2_v1pa4"]
 [ext_resource type="PackedScene" uid="uid://cjovkwakrjeey" path="res://pause_menu.tscn" id="3_0cdu3"]
 [ext_resource type="Texture2D" uid="uid://demgdfjnji6x1" path="res://assets/Terrain/Terrain (16x16).png" id="4_vsaid"]
 [ext_resource type="Script" path="res://scenes/harpypath_follow.gd" id="5_flcn5"]
 [ext_resource type="Texture2D" uid="uid://cok7dts8067ff" path="res://assets/harpy.png" id="6_iwd8x"]
+[ext_resource type="AudioStream" uid="uid://d3fi86x3e0o3b" path="res://assets/sad_music.mp3" id="8_rrm1q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0g77"]
 texture = ExtResource("4_vsaid")
@@ -278,14 +280,18 @@ sources/0 = SubResource("TileSetAtlasSource_o0g77")
 
 [sub_resource type="Curve2D" id="Curve2D_k1p6c"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 576, 150, 0, 0, 0, 0, 576, 575)
+"points": PackedVector2Array(0, 0, 0, 0, 576, 100, 0, 0, 0, 0, 576, 575)
 }
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62i5n"]
 size = Vector2(35, 134)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugqj"]
+size = Vector2(97, 93)
+
 [node name="Level3" type="Node2D"]
+script = ExtResource("1_2eqp6")
 
 [node name="Trug" parent="." instance=ExtResource("2_v1pa4")]
 position = Vector2(111, 465)
@@ -309,14 +315,14 @@ visible = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAAABEAAAAGAAQAAAAAABIAAAAGAAUAAAABABEAAAAHAAQAAAABABIAAAAHAAUAAAACABEAAAAHAAQAAAACABIAAAAHAAUAAAADABEAAAAHAAQAAAADABIAAAAHAAUAAAAEABEAAAAHAAQAAAAEABIAAAAHAAUAAAAFABEAAAAHAAQAAAAFABIAAAAHAAUAAAAGABEAAAAHAAQAAAAGABIAAAAHAAUAAAAHABEAAAAHAAQAAAAHABIAAAAHAAUAAAAIABEAAAAIAAQAAAAIABIAAAAIAAUAAAAAABMAAAAGAAUAAAAAABQAAAAGAAYAAAABABMAAAAHAAUAAAABABQAAAAHAAYAAAAHABMAAAAHAAUAAAAHABQAAAAHAAYAAAAIABMAAAAIAAUAAAAIABQAAAAIAAYAAAACABMAAAAHAAUAAAACABQAAAAHAAYAAAADABMAAAAHAAUAAAADABQAAAAHAAYAAAAEABMAAAAHAAUAAAAEABQAAAAHAAYAAAAFABMAAAAHAAUAAAAFABQAAAAHAAYAAAAGABMAAAAHAAUAAAAGABQAAAAHAAYAAAALAA8AAAAGAAQAAAALABAAAAAGAAUAAAALABEAAAAGAAYAAAAMAA8AAAAHAAQAAAAMABAAAAAHAAUAAAAMABEAAAAHAAYAAAANAA8AAAAIAAQAAAANABAAAAAIAAUAAAANABEAAAAIAAYAAAAWAA8AAAAGAAQAAAAWABAAAAAGAAUAAAAWABEAAAAGAAYAAAAXAA8AAAAHAAQAAAAXABAAAAAHAAUAAAAXABEAAAAHAAYAAAAYAA8AAAAIAAQAAAAYABAAAAAIAAUAAAAYABEAAAAIAAYAAAA=")
+tile_map_data = PackedByteArray("AAAAABEAAAAGAAQAAAAAABIAAAAGAAUAAAABABEAAAAHAAQAAAABABIAAAAHAAUAAAACABEAAAAHAAQAAAACABIAAAAHAAUAAAADABEAAAAHAAQAAAADABIAAAAHAAUAAAAEABEAAAAHAAQAAAAEABIAAAAHAAUAAAAFABEAAAAHAAQAAAAFABIAAAAHAAUAAAAGABEAAAAHAAQAAAAGABIAAAAHAAUAAAAHABEAAAAHAAQAAAAHABIAAAAHAAUAAAAIABEAAAAIAAQAAAAIABIAAAAIAAUAAAAAABMAAAAGAAUAAAAAABQAAAAGAAYAAAABABMAAAAHAAUAAAABABQAAAAHAAYAAAAHABMAAAAHAAUAAAAHABQAAAAHAAYAAAAIABMAAAAIAAUAAAAIABQAAAAIAAYAAAACABMAAAAHAAUAAAACABQAAAAHAAYAAAADABMAAAAHAAUAAAADABQAAAAHAAYAAAAEABMAAAAHAAUAAAAEABQAAAAHAAYAAAAFABMAAAAHAAUAAAAFABQAAAAHAAYAAAAGABMAAAAHAAUAAAAGABQAAAAHAAYAAAALAA8AAAAGAAQAAAALABAAAAAGAAUAAAALABEAAAAGAAYAAAAMAA8AAAAHAAQAAAAMABAAAAAHAAUAAAAMABEAAAAHAAYAAAANAA8AAAAIAAQAAAANABAAAAAIAAUAAAANABEAAAAIAAYAAAAWAA8AAAAGAAQAAAAWABAAAAAGAAUAAAAWABEAAAAGAAYAAAAXAA8AAAAHAAQAAAAXABAAAAAHAAUAAAAXABEAAAAHAAYAAAAYAA8AAAAIAAQAAAAYABAAAAAIAAUAAAAYABEAAAAIAAYAAAAbAA0AAAAGAAQAAAAbAA4AAAAGAAUAAAAbAA8AAAAGAAYAAAAcAA0AAAAHAAQAAAAcAA4AAAAHAAUAAAAcAA8AAAAHAAYAAAAdAA0AAAAIAAQAAAAdAA4AAAAIAAUAAAAdAA8AAAAIAAYAAAAiABEAAAAGAAQAAAAiABIAAAAGAAUAAAAiABMAAAAGAAYAAAAjABEAAAAHAAQAAAAjABIAAAAHAAUAAAAjABMAAAAHAAYAAAAkABEAAAAIAAQAAAAkABIAAAAIAAUAAAAkABMAAAAIAAYAAAApABEAAAAGAAQAAAApABIAAAAGAAUAAAApABMAAAAGAAYAAAAqABEAAAAHAAQAAAAqABIAAAAHAAUAAAAqABMAAAAHAAYAAAArABEAAAAIAAQAAAArABIAAAAIAAUAAAArABMAAAAIAAYAAAA=")
 tile_set = SubResource("TileSet_qnygy")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_k1p6c")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(576, 150)
+position = Vector2(576, 100)
 rotation = 1.5708
 loop = false
 script = ExtResource("5_flcn5")
@@ -333,4 +339,37 @@ texture = ExtResource("6_iwd8x")
 position = Vector2(-13.5, 14)
 shape = SubResource("RectangleShape2D_62i5n")
 
+[node name="crabzer_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="crabzer_area"]
+position = Vector2(1358.5, 495.5)
+shape = SubResource("RectangleShape2D_0ugqj")
+
+[node name="Crabzer" type="Label" parent="."]
+visible = false
+offset_left = 1273.0
+offset_top = 395.0
+offset_right = 1449.0
+offset_bottom = 418.0
+text = "Press F to pay respects"
+
+[node name="respect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_rrm1q")
+volume_db = 24.0
+parameters/looping = true
+
+[node name="win" type="Label" parent="."]
+visible = false
+offset_left = 1413.0
+offset_top = 545.0
+offset_right = 1624.0
+offset_bottom = 568.0
+text = "Press Enter to exit the level
+"
+
+[node name="win_timer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="body_entered" from="Path2D/PathFollow2D/enemy" to="Path2D/PathFollow2D" method="_on_enemy_body_entered"]
+[connection signal="body_entered" from="crabzer_area" to="." method="_on_crabzer_area_body_entered"]
+[connection signal="timeout" from="win_timer" to="." method="_on_win_timer_timeout"]

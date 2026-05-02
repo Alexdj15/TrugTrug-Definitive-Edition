@@ -286,7 +286,7 @@ _data = {
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nvr8b"]
-size = Vector2(94, 48)
+size = Vector2(74, 45)
 
 [sub_resource type="Curve2D" id="Curve2D_tl0h5"]
 _data = {
@@ -346,7 +346,7 @@ scale = Vector2(0.312785, 0.312785)
 texture = ExtResource("4_6unnk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/enemy"]
-position = Vector2(1, 9)
+position = Vector2(-1, 10.5)
 shape = SubResource("RectangleShape2D_nvr8b")
 
 [node name="UI" type="CanvasLayer" parent="."]
