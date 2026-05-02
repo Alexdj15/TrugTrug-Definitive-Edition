@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scenes/path_follow_stick.gd" id="8_6v40d"]
 [ext_resource type="Texture2D" uid="uid://de6n1wxnwoxmv" path="res://assets/stickwithoutbg.png" id="9_lxoh1"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sxjd7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3uag2"]
 texture = ExtResource("2_hxwr5")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -277,7 +277,7 @@ texture = ExtResource("2_hxwr5")
 
 [sub_resource type="TileSet" id="TileSet_nfagt"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_sxjd7")
+sources/0 = SubResource("TileSetAtlasSource_3uag2")
 
 [sub_resource type="Curve2D" id="Curve2D_0k6mu"]
 _data = {

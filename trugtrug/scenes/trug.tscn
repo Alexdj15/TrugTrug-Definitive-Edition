@@ -36,4 +36,9 @@ text = "TRUG!"
 [node name="Trugsfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_xmq3g")
 
+[node name="coyote" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="timeout" from="Trug_Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="coyote" to="." method="_on_coyote_timeout"]
