@@ -1,11 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://cb4bxxasxkglq"]
+[gd_scene load_steps=15 format=4 uid="uid://cb4bxxasxkglq"]
 
 [ext_resource type="Texture2D" uid="uid://bl5am1he5nljn" path="res://assets/croczerbg.png" id="1_7ltcu"]
+[ext_resource type="Script" path="res://scenes/level_4_world.gd" id="1_ap1q6"]
 [ext_resource type="PackedScene" uid="uid://cjovkwakrjeey" path="res://pause_menu.tscn" id="2_x0wt3"]
 [ext_resource type="Texture2D" uid="uid://demgdfjnji6x1" path="res://assets/Terrain/Terrain (16x16).png" id="3_l7m2g"]
 [ext_resource type="PackedScene" uid="uid://cju5rybawdhqf" path="res://scenes/trug.tscn" id="4_ieo3o"]
 [ext_resource type="Script" path="res://scenes/moving_platform_path.gd" id="5_iwb4u"]
 [ext_resource type="Texture2D" uid="uid://dwpeo136m4axh" path="res://assets/movingplatform.png" id="6_jg42u"]
+[ext_resource type="AudioStream" uid="uid://d3fi86x3e0o3b" path="res://assets/sad_music.mp3" id="7_6qy4m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ychda"]
 texture = ExtResource("3_l7m2g")
@@ -285,7 +287,17 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48s61"]
 size = Vector2(158, 16)
 
+[sub_resource type="Curve2D" id="Curve2D_35rce"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1025, 142, 0, 0, 0, 0, 1025, 550)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llyc0"]
+size = Vector2(85.5, 78.5)
+
 [node name="level_4" type="Node2D"]
+script = ExtResource("1_ap1q6")
 
 [node name="Trug" parent="." instance=ExtResource("4_ieo3o")]
 position = Vector2(77, 475)
@@ -293,12 +305,13 @@ position = Vector2(77, 475)
 [node name="Camera2D" type="Camera2D" parent="Trug"]
 limit_left = 0
 limit_top = 0
+limit_right = 2195
 limit_bottom = 0
 position_smoothing_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -10
-offset_right = 2387.0
+offset_right = 2745.0
 offset_bottom = 811.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_7ltcu")
@@ -310,23 +323,69 @@ visible = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAABABEAAAAAAAAAAAABABIAAAAAAAEAAAABABMAAAAAAAIAAAACABEAAAABAAAAAAACABIAAAABAAEAAAACABMAAAABAAIAAAADABEAAAACAAAAAAADABIAAAACAAEAAAADABMAAAACAAIAAAAaABEAAAAAAAAAAAAaABIAAAAAAAEAAAAaABMAAAAAAAIAAAAbABEAAAABAAAAAAAbABIAAAABAAEAAAAbABMAAAABAAIAAAAcABEAAAACAAAAAAAcABIAAAACAAEAAAAcABMAAAACAAIAAAA=")
+tile_map_data = PackedByteArray("AAABABEAAAAAAAAAAAABABIAAAAAAAEAAAABABMAAAAAAAIAAAACABEAAAABAAAAAAACABIAAAABAAEAAAACABMAAAABAAIAAAADABEAAAACAAAAAAADABIAAAACAAEAAAADABMAAAACAAIAAAAaABEAAAAAAAAAAAAaABIAAAAAAAEAAAAaABMAAAAAAAIAAAAbABEAAAABAAAAAAAbABIAAAABAAEAAAAbABMAAAABAAIAAAAcABEAAAACAAAAAAAcABIAAAACAAEAAAAcABMAAAACAAIAAAAkAAQAAAAAAAAAAAAkAAUAAAAAAAEAAAAkAAYAAAAAAAIAAAAlAAQAAAABAAAAAAAlAAUAAAABAAEAAAAlAAYAAAABAAIAAAAmAAQAAAACAAAAAAAmAAUAAAACAAEAAAAmAAYAAAACAAIAAAA0AA4AAAABAAAAAAA0AA8AAAABAAEAAAA1AA4AAAACAAAAAAA1AA8AAAACAAEAAAA0ABAAAAABAAIAAAA1ABAAAAACAAIAAAAzAA4AAAAAAAAAAAAzAA8AAAAAAAEAAAAzABAAAAAAAAIAAAA9AA4AAAAAAAAAAAA9AA8AAAAAAAEAAAA9ABAAAAAAAAIAAAA+AA4AAAABAAAAAAA+AA8AAAABAAEAAAA+ABAAAAABAAIAAAA/AA4AAAACAAAAAAA/AA8AAAACAAEAAAA/ABAAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_rg8lg")
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="horz_platform" type="Path2D" parent="."]
 curve = SubResource("Curve2D_8prwy")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="PathFollow2D" type="PathFollow2D" parent="horz_platform"]
 position = Vector2(237, 542)
 loop = false
 script = ExtResource("5_iwb4u")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Path2D/PathFollow2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="horz_platform/PathFollow2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="horz_platform/PathFollow2D/CharacterBody2D"]
 shape = SubResource("RectangleShape2D_48s61")
 
-[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="horz_platform/PathFollow2D/CharacterBody2D"]
 position = Vector2(-3.8147e-06, 0)
 scale = Vector2(3.3, 3.3)
 texture = ExtResource("6_jg42u")
+
+[node name="vert_platform" type="Path2D" parent="."]
+curve = SubResource("Curve2D_35rce")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="vert_platform"]
+position = Vector2(1025, 142)
+rotation = 1.5708
+loop = false
+script = ExtResource("5_iwb4u")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="vert_platform/PathFollow2D"]
+rotation = 4.71239
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vert_platform/PathFollow2D/CharacterBody2D"]
+shape = SubResource("RectangleShape2D_48s61")
+
+[node name="Sprite2D" type="Sprite2D" parent="vert_platform/PathFollow2D/CharacterBody2D"]
+position = Vector2(-3.8147e-06, 0)
+scale = Vector2(3.3, 3.3)
+texture = ExtResource("6_jg42u")
+
+[node name="respect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6qy4m")
+volume_db = 24.0
+parameters/looping = true
+
+[node name="croczer_win" type="Label" parent="."]
+visible = false
+offset_left = 1951.0
+offset_top = 298.0
+offset_right = 2039.0
+offset_bottom = 321.0
+text = "RIP Croczer
+"
+
+[node name="win_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="win_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="win_area"]
+position = Vector2(2000.25, 405.25)
+shape = SubResource("RectangleShape2D_llyc0")
+
+[connection signal="timeout" from="win_timer" to="." method="_on_win_timer_timeout"]
+[connection signal="body_entered" from="win_area" to="." method="_on_win_area_body_entered"]

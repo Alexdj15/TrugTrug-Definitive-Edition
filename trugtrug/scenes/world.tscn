@@ -82,7 +82,7 @@ text = "You Trugged it!!
 Well Done!"
 
 [node name="WinTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 

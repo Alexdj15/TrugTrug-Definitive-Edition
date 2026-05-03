@@ -378,7 +378,7 @@ position = Vector2(-3, 2)
 shape = SubResource("RectangleShape2D_5nk4b")
 
 [node name="win_timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 
 [node name="winlabel" type="Label" parent="."]
 z_index = 1
