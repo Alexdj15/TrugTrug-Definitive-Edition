@@ -9,11 +9,11 @@ func _ready():
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("pause"):
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/intro_1.tscn")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/intro_1.tscn")
 
 
 func _on_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/intro_1.tscn")

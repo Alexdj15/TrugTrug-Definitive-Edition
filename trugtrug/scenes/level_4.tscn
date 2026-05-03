@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dwpeo136m4axh" path="res://assets/movingplatform.png" id="6_jg42u"]
 [ext_resource type="AudioStream" uid="uid://d3fi86x3e0o3b" path="res://assets/sad_music.mp3" id="7_6qy4m"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ychda"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8imyo"]
 texture = ExtResource("3_l7m2g")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -276,7 +276,7 @@ texture = ExtResource("3_l7m2g")
 
 [sub_resource type="TileSet" id="TileSet_rg8lg"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ychda")
+sources/0 = SubResource("TileSetAtlasSource_8imyo")
 
 [sub_resource type="Curve2D" id="Curve2D_8prwy"]
 _data = {
