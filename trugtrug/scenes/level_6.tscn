@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dy2d71v5nx7yf"]
+[gd_scene load_steps=24 format=4 uid="uid://dy2d71v5nx7yf"]
 
 [ext_resource type="Script" path="res://scenes/level_6_world.gd" id="1_fu11q"]
 [ext_resource type="Texture2D" uid="uid://dvrd2soy0tlek" path="res://assets/trugdeathbg.png" id="1_hekxp"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cju5rybawdhqf" path="res://scenes/trug.tscn" id="5_xitln"]
 [ext_resource type="Texture2D" uid="uid://demgdfjnji6x1" path="res://assets/Terrain/Terrain (16x16).png" id="6_rgy70"]
 [ext_resource type="Script" path="res://scenes/enemy_2.gd" id="8_20fpe"]
+[ext_resource type="Script" path="res://scenes/moving_platform_path.gd" id="10_16fyc"]
+[ext_resource type="Texture2D" uid="uid://cl15vdusnrucy" path="res://assets/moving_wood.png" id="11_4hsmb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rrvxe"]
 texture = ExtResource("6_rgy70")
@@ -281,22 +283,177 @@ sources/0 = SubResource("TileSetAtlasSource_rrvxe")
 
 [sub_resource type="Curve2D" id="Curve2D_swtr2"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 232, 495, 0, 0, 0, 0, 537, 495)
+"points": PackedVector2Array(0, 0, 0, 0, 537, 495, 0, 0, 0, 0, 232, 495)
 }
 point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_w16uq"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 817, 500, 0, 0, 0, 0, 1250, 500)
+"points": PackedVector2Array(0, 0, 0, 0, 1250, 500, 0, 0, 0, 0, 817, 500)
 }
 point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_7r4dw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1910, 550, 0, 0, 0, 0, 1450, 550)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tg8jj"]
+size = Vector2(48, 4.8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o354q"]
+size = Vector2(92.5, 84)
+
+[sub_resource type="Animation" id="Animation_shg4i"]
+resource_name = "fade_to_black"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xasv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../dead_trug1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../rapzer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../rapzerbg:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0vitq"]
+resource_name = "fade_from_black"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../dead_trug1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1hms6"]
+resource_name = "fade_to_rapzer"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../dead_trug1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../rapzerbg:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../rapzer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iaph0"]
+_data = {
+"RESET": SubResource("Animation_xasv1"),
+"fade_from_black": SubResource("Animation_0vitq"),
+"fade_to_black": SubResource("Animation_shg4i"),
+"fade_to_rapzer": SubResource("Animation_1hms6")
+}
 
 [node name="level_6" type="Node2D"]
 script = ExtResource("1_fu11q")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAABABEAAAAGAAQAAAABABIAAAAGAAUAAAABABMAAAAGAAYAAAACABEAAAAHAAQAAAACABIAAAAHAAUAAAACABMAAAAHAAYAAAADABEAAAAHAAQAAAADABIAAAAHAAUAAAADABMAAAAHAAYAAAAEABEAAAAHAAQAAAAEABIAAAAHAAUAAAAEABMAAAAHAAYAAAAFABEAAAAHAAQAAAAFABIAAAAHAAUAAAAFABMAAAAHAAYAAAAGABEAAAAHAAQAAAAGABIAAAAHAAUAAAAGABMAAAAHAAYAAAAHABEAAAAHAAQAAAAHABIAAAAHAAUAAAAHABMAAAAHAAYAAAAIABEAAAAHAAQAAAAIABIAAAAHAAUAAAAIABMAAAAHAAYAAAAJABEAAAAHAAQAAAAJABIAAAAHAAUAAAAJABMAAAAHAAYAAAAKABEAAAAHAAQAAAAKABIAAAAHAAUAAAAKABMAAAAHAAYAAAALABEAAAAHAAQAAAALABIAAAAHAAUAAAALABMAAAAHAAYAAAAMABEAAAAHAAQAAAAMABIAAAAHAAUAAAAMABMAAAAHAAYAAAANABEAAAAHAAQAAAANABIAAAAHAAUAAAANABMAAAAHAAYAAAAOABEAAAAHAAQAAAAOABIAAAAHAAUAAAAOABMAAAAHAAYAAAAPABEAAAAHAAQAAAAPABIAAAAHAAUAAAAPABMAAAAHAAYAAAAQABEAAAAHAAQAAAAQABIAAAAHAAUAAAAQABMAAAAHAAYAAAARABEAAAAIAAQAAAARABIAAAAIAAUAAAARABMAAAAIAAYAAAAnABEAAAAHAAQAAAAnABIAAAAHAAUAAAAnABMAAAAHAAYAAAAoABEAAAAIAAQAAAAoABIAAAAIAAUAAAAoABMAAAAIAAYAAAAYABEAAAAGAAQAAAAYABIAAAAGAAUAAAAYABMAAAAGAAYAAAAZABEAAAAHAAQAAAAZABIAAAAHAAUAAAAZABMAAAAHAAYAAAAaABEAAAAHAAQAAAAaABIAAAAHAAUAAAAaABMAAAAHAAYAAAAbABEAAAAHAAQAAAAbABIAAAAHAAUAAAAbABMAAAAHAAYAAAAcABEAAAAHAAQAAAAcABIAAAAHAAUAAAAcABMAAAAHAAYAAAAdABEAAAAHAAQAAAAdABIAAAAHAAUAAAAdABMAAAAHAAYAAAAeABEAAAAHAAQAAAAeABIAAAAHAAUAAAAeABMAAAAHAAYAAAAfABEAAAAHAAQAAAAfABIAAAAHAAUAAAAfABMAAAAHAAYAAAAgABEAAAAHAAQAAAAgABIAAAAHAAUAAAAgABMAAAAHAAYAAAAhABEAAAAHAAQAAAAhABIAAAAHAAUAAAAhABMAAAAHAAYAAAAiABEAAAAHAAQAAAAiABIAAAAHAAUAAAAiABMAAAAHAAYAAAAjABEAAAAHAAQAAAAjABIAAAAHAAUAAAAjABMAAAAHAAYAAAAkABEAAAAHAAQAAAAkABIAAAAHAAUAAAAkABMAAAAHAAYAAAAlABEAAAAHAAQAAAAlABIAAAAHAAUAAAAlABMAAAAHAAYAAAAmABEAAAAHAAQAAAAmABIAAAAHAAUAAAAmABMAAAAHAAYAAAA=")
+tile_map_data = PackedByteArray("AAABABEAAAAGAAQAAAABABIAAAAGAAUAAAABABMAAAAGAAYAAAACABEAAAAHAAQAAAACABIAAAAHAAUAAAACABMAAAAHAAYAAAADABEAAAAHAAQAAAADABIAAAAHAAUAAAADABMAAAAHAAYAAAAEABEAAAAHAAQAAAAEABIAAAAHAAUAAAAEABMAAAAHAAYAAAAFABEAAAAHAAQAAAAFABIAAAAHAAUAAAAFABMAAAAHAAYAAAAGABEAAAAHAAQAAAAGABIAAAAHAAUAAAAGABMAAAAHAAYAAAAHABEAAAAHAAQAAAAHABIAAAAHAAUAAAAHABMAAAAHAAYAAAAIABEAAAAHAAQAAAAIABIAAAAHAAUAAAAIABMAAAAHAAYAAAAJABEAAAAHAAQAAAAJABIAAAAHAAUAAAAJABMAAAAHAAYAAAAKABEAAAAHAAQAAAAKABIAAAAHAAUAAAAKABMAAAAHAAYAAAALABEAAAAHAAQAAAALABIAAAAHAAUAAAALABMAAAAHAAYAAAAMABEAAAAHAAQAAAAMABIAAAAHAAUAAAAMABMAAAAHAAYAAAANABEAAAAHAAQAAAANABIAAAAHAAUAAAANABMAAAAHAAYAAAAOABEAAAAHAAQAAAAOABIAAAAHAAUAAAAOABMAAAAHAAYAAAAPABEAAAAHAAQAAAAPABIAAAAHAAUAAAAPABMAAAAHAAYAAAAQABEAAAAHAAQAAAAQABIAAAAHAAUAAAAQABMAAAAHAAYAAAARABEAAAAIAAQAAAARABIAAAAIAAUAAAARABMAAAAIAAYAAAAnABEAAAAHAAQAAAAnABIAAAAHAAUAAAAnABMAAAAHAAYAAAAoABEAAAAIAAQAAAAoABIAAAAIAAUAAAAoABMAAAAIAAYAAAAYABEAAAAGAAQAAAAYABIAAAAGAAUAAAAYABMAAAAGAAYAAAAZABEAAAAHAAQAAAAZABIAAAAHAAUAAAAZABMAAAAHAAYAAAAaABEAAAAHAAQAAAAaABIAAAAHAAUAAAAaABMAAAAHAAYAAAAbABEAAAAHAAQAAAAbABIAAAAHAAUAAAAbABMAAAAHAAYAAAAcABEAAAAHAAQAAAAcABIAAAAHAAUAAAAcABMAAAAHAAYAAAAdABEAAAAHAAQAAAAdABIAAAAHAAUAAAAdABMAAAAHAAYAAAAeABEAAAAHAAQAAAAeABIAAAAHAAUAAAAeABMAAAAHAAYAAAAfABEAAAAHAAQAAAAfABIAAAAHAAUAAAAfABMAAAAHAAYAAAAgABEAAAAHAAQAAAAgABIAAAAHAAUAAAAgABMAAAAHAAYAAAAhABEAAAAHAAQAAAAhABIAAAAHAAUAAAAhABMAAAAHAAYAAAAiABEAAAAHAAQAAAAiABIAAAAHAAUAAAAiABMAAAAHAAYAAAAjABEAAAAHAAQAAAAjABIAAAAHAAUAAAAjABMAAAAHAAYAAAAkABEAAAAHAAQAAAAkABIAAAAHAAUAAAAkABMAAAAHAAYAAAAlABEAAAAHAAQAAAAlABIAAAAHAAUAAAAlABMAAAAHAAYAAAAmABEAAAAHAAQAAAAmABIAAAAHAAUAAAAmABMAAAAHAAYAAABBABEAAAAHAAQAAABBABIAAAAHAAUAAABBABMAAAAHAAYAAABCABEAAAAIAAQAAABCABIAAAAIAAUAAABCABMAAAAIAAYAAABAABEAAAAGAAQAAABAABIAAAAGAAUAAABAABMAAAAGAAYAAAA=")
 tile_set = SubResource("TileSet_h502t")
 
 [node name="Trug" parent="." instance=ExtResource("5_xitln")]
@@ -316,6 +473,7 @@ offset_bottom = 648.0
 texture = ExtResource("1_hekxp")
 
 [node name="UI" type="CanvasLayer" parent="."]
+layer = 101
 
 [node name="pause_menu" parent="UI" instance=ExtResource("2_krf2f")]
 visible = false
@@ -324,11 +482,13 @@ visible = false
 curve = SubResource("Curve2D_swtr2")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(232, 495)
+position = Vector2(537, 495)
+rotation = 3.14159
 loop = false
 script = ExtResource("4_oknia")
 
 [node name="enemy_1" type="Area2D" parent="Path2D/PathFollow2D"]
+scale = Vector2(-1, -1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D/enemy_1"]
 position = Vector2(-1.19209e-07, -9.09495e-13)
@@ -342,12 +502,14 @@ polygon = PackedVector2Array(-43, 4, -2, -24, 40, -25, 46, 21, 17, 39, -1, 39, -
 curve = SubResource("Curve2D_w16uq")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(817, 500)
+position = Vector2(1250, 500)
+rotation = 3.14159
 loop = false
 script = ExtResource("8_20fpe")
 
 [node name="enemy_2" type="Area2D" parent="Path2D2/PathFollow2D"]
 rotation = -0.349066
+scale = Vector2(-1, -1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Path2D2/PathFollow2D/enemy_2"]
 scale = Vector2(0.209964, 0.209964)
@@ -356,5 +518,55 @@ texture = ExtResource("5_a6k6b")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Path2D2/PathFollow2D/enemy_2"]
 polygon = PackedVector2Array(-37.6637, -45.6339, -37, -33, -13, -10, -11, 40, 25, 41, 12.3956, -25.2854, -4.17682, -32.3814)
 
+[node name="Path2D3" type="Path2D" parent="."]
+curve = SubResource("Curve2D_7r4dw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2(1910, 550)
+rotation = 3.14159
+loop = false
+script = ExtResource("10_16fyc")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Path2D3/PathFollow2D"]
+scale = Vector2(2.5, 2.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D3/PathFollow2D/CharacterBody2D"]
+position = Vector2(7.62939e-07, 3.8147e-07)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_tg8jj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D3/PathFollow2D/CharacterBody2D"]
+texture = ExtResource("11_4hsmb")
+flip_v = true
+
+[node name="win_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="win_area"]
+position = Vector2(2095.75, 500)
+shape = SubResource("RectangleShape2D_o354q")
+
+[node name="win_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_iaph0")
+}
+
 [connection signal="body_entered" from="Path2D/PathFollow2D/enemy_1" to="Path2D/PathFollow2D" method="_on_enemy_1_body_entered"]
 [connection signal="body_entered" from="Path2D2/PathFollow2D/enemy_2" to="Path2D2/PathFollow2D" method="_on_enemy_2_body_entered"]
+[connection signal="body_entered" from="win_area" to="." method="_on_win_area_body_entered"]
+[connection signal="timeout" from="win_timer" to="." method="_on_win_timer_timeout"]

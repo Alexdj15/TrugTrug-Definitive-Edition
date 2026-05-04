@@ -8,13 +8,27 @@ res://scenes/level_4.tscn
 res://scenes/level_5.tscn
 res://scenes/level_6.tscn
 res://scenes/trug.tscn
-res://scenes/level_4_world.gd
 res://scenes/intro.tscn
-res://scenes/intro.gd
-res://scenes/v_box_container.gd
 res://scenes/intro_1.tscn
-res://scenes/v_box_container2.gd
-res://scenes/level_6_world.gd
+res://wait_for_video.tscn
 res://scenes/enemy_1.gd
-res://scenes/trug (2).gd
 res://scenes/enemy_2.gd
+res://scenes/level_6_world.gd
+res://scenes/ending_cutscene.tscn
+res://scenes/ending_cutscene.gd
+res://scenes/exit.gd
+res://scenes/harpypath_follow.gd
+res://scenes/level_1.gd
+res://scenes/level_2.gd
+res://scenes/level_2_world.gd
+res://scenes/level_3.gd
+res://scenes/level_3_world.gd
+res://scenes/level_4.gd
+res://scenes/level_4_world.gd
+res://scenes/level_5.gd
+res://scenes/level_5_world.gd
+res://scenes/level_6.gd
+res://scenes/path_follow_2d.gd
+res://scenes/pause_menu (2).gd
+res://scenes/v_box_container2.gd
+res://scenes/v_box_container.gd

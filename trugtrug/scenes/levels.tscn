@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://4xv4dvu71l8g"]
 
-[ext_resource type="Texture2D" uid="uid://dbtqtkvmkd0nd" path="res://assets/trug+parkzer_cutscene2.png" id="1_mtm1v"]
+[ext_resource type="Texture2D" uid="uid://ckalgynldg3hc" path="res://assets/trugmaintitle.png" id="1_ull33"]
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="2_ew305"]
 [ext_resource type="Script" path="res://scenes/title.gd" id="2_py3us"]
 [ext_resource type="Script" path="res://scenes/level_2.gd" id="3_r0ecy"]
@@ -51,7 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_mtm1v")
+texture = ExtResource("1_ull33")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

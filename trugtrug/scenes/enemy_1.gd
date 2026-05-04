@@ -5,6 +5,7 @@ var direction: int = 1         # 1 for forward, -1 for backward
 
 func _ready() -> void:
 	$enemy_1.scale.x = -1
+	$enemy_1.scale.y = -1
 	
 func _process(delta: float):
 	# Update the ratio based on speed and direction
@@ -23,5 +24,5 @@ func _process(delta: float):
 		$enemy_1.scale.x = -1
 
 
-func _on_enemy_1_body_entered(body: Node2D) -> void:
+func _on_enemy_1_body_entered(_body: Node2D) -> void:
 	get_tree().reload_current_scene()

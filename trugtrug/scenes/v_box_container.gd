@@ -6,11 +6,11 @@ func _ready():
 	# Set the pivot to the exact center
 	pivot_offset = size / 2.0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("pause"):
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _on_timer_timeout() -> void:

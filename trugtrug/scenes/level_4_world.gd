@@ -7,11 +7,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
-func _on_win_area_body_entered(body: Node2D) -> void:
+func _on_win_area_body_entered(_body: Node2D) -> void:
 	$croczer_win.visible = true
 	$respect.play(30)
 	GlobalManager.level4_passed = true

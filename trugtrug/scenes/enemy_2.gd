@@ -5,7 +5,8 @@ var direction: int = 1         # 1 for forward, -1 for backward
 
 func _ready() -> void:
 	$enemy_2.scale.x = -1
-	$enemy_2.rotation_degrees = 20
+	#$enemy_2.rotation_degrees = 20
+	$enemy_2.scale.y = -1
 	
 func _process(delta: float):
 	# Update the ratio based on speed and direction
@@ -16,15 +17,15 @@ func _process(delta: float):
 		progress_ratio = 1.0    # Cap it to avoid overshooting
 		direction = -1          # Start moving backward
 		$enemy_2.scale.x = 1
-		$enemy_2.rotation_degrees = -20
+		$enemy_2.rotation_degrees = 20
 		
 	# Check if we hit the start (0.0)
 	elif progress_ratio <= 0.0:
 		progress_ratio = 0.0    # Cap it to avoid overshooting
 		direction = 1           # Start moving forward
 		$enemy_2.scale.x = -1
-		$enemy_2.rotation_degrees = 20
+		$enemy_2.rotation_degrees = -20
 
 
-func _on_enemy_2_body_entered(body: Node2D) -> void:
+func _on_enemy_2_body_entered(_body: Node2D) -> void:
 	get_tree().reload_current_scene()
