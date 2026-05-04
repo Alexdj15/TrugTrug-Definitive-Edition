@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dq5cj603j7m50"]
+[gd_scene load_steps=11 format=3 uid="uid://dq5cj603j7m50"]
 
 [ext_resource type="Script" path="res://scenes/ending_cutscene.gd" id="1_jy0ff"]
 [ext_resource type="Texture2D" uid="uid://cbqr1fmgyvhkw" path="res://assets/trug_rdr2death.jpg" id="1_t4emh"]
 [ext_resource type="Texture2D" uid="uid://076tsfmb0sb8" path="res://assets/rapzer.png" id="3_si5kx"]
 [ext_resource type="Texture2D" uid="uid://nxbt03gw30cx" path="res://assets/rapzerbg.jpg" id="4_5h0ev"]
+[ext_resource type="Script" path="res://scenes/the_end_label.gd" id="5_fvsrw"]
 
 [sub_resource type="Animation" id="Animation_shg4i"]
 resource_name = "fade_to_black"
@@ -70,6 +71,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../rapzer_label:theme_override_colors/font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_0vitq"]
@@ -139,6 +152,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../rapzer_label:theme_override_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iaph0"]
 _data = {
@@ -199,6 +224,24 @@ offset_bottom = 648.0
 texture = ExtResource("4_5h0ev")
 expand_mode = 1
 
+[node name="rapzer_label" type="Label" parent="."]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -466.0
+offset_top = 43.0
+offset_right = 466.0
+offset_bottom = 144.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 35
+text = "And so Rapzer was left alone
+to mourn TrugTrug and Parkzer's deaths for all eternity"
+horizontal_alignment = 1
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 100
 
@@ -218,7 +261,34 @@ libraries = {
 }
 
 [node name="trug_death_timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 6.0
 one_shot = true
 
+[node name="rapzer_timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="the_end" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -34.5
+offset_right = 96.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "The End"
+script = ExtResource("5_fvsrw")
+
+[node name="end_timer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="timeout" from="trug_death_timer" to="." method="_on_trug_death_timer_timeout"]
+[connection signal="timeout" from="rapzer_timer" to="." method="_on_rapzer_timer_timeout"]
+[connection signal="timeout" from="end_timer" to="." method="_on_end_timer_timeout"]
