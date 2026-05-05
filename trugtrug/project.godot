@@ -18,7 +18,7 @@ warnings/check_angle_interpolation_type_conflicting=false
 config/name="TrugTrug"
 run/main_scene="res://scenes/intro.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/stick.png"
 
 [autoload]
 

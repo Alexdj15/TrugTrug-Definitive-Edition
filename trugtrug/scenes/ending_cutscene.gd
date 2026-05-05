@@ -32,4 +32,4 @@ func _on_rapzer_timer_timeout() -> void:
 	$end_timer.start()
 
 func _on_end_timer_timeout() -> void:
-	pass
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")

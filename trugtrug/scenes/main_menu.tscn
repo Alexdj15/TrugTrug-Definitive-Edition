@@ -101,12 +101,14 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -386.0
-offset_top = 75.0
+offset_top = 28.0
 offset_right = 386.0
-offset_bottom = 144.0
+offset_bottom = 223.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 70
-text = "TRUG TRUG DEFINITIVE EDITION"
+text = "TRUG TRUG: 
+DEFINITIVE EDITION"
+horizontal_alignment = 1
 script = ExtResource("2_dwwp7")
 
 [connection signal="pressed" from="Play" to="Play" method="_on_pressed"]

@@ -6,22 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://nxbt03gw30cx" path="res://assets/rapzerbg.jpg" id="4_5h0ev"]
 [ext_resource type="Script" path="res://scenes/the_end_label.gd" id="5_fvsrw"]
 
-[sub_resource type="Animation" id="Animation_shg4i"]
-resource_name = "fade_to_black"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FadeRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_xasv1"]
 length = 0.001
 tracks/0/type = "value"
@@ -113,6 +97,22 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_shg4i"]
+resource_name = "fade_to_black"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_1hms6"]
 resource_name = "fade_to_rapzer"
 length = 2.0
@@ -194,6 +194,7 @@ color = Color(0, 0, 0, 1)
 visible = false
 modulate = Color(1, 1, 1, 0)
 z_index = 10
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("1_t4emh")
