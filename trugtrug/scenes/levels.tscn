@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://4xv4dvu71l8g"]
+[gd_scene load_steps=13 format=3 uid="uid://4xv4dvu71l8g"]
 
 [ext_resource type="Texture2D" uid="uid://ckalgynldg3hc" path="res://assets/trugmaintitle.png" id="1_ull33"]
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="2_ew305"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/level_4.gd" id="5_qcih5"]
 [ext_resource type="Script" path="res://scenes/level_5.gd" id="6_6xlgr"]
 [ext_resource type="Script" path="res://scenes/level_6.gd" id="7_g0hvb"]
+[ext_resource type="PackedScene" uid="uid://cjovkwakrjeey" path="res://pause_menu.tscn" id="9_uysyi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0oer"]
 
@@ -158,6 +159,11 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 60
 text = "LEVEL SELECT"
 script = ExtResource("2_py3us")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="pause_menu" parent="UI" instance=ExtResource("9_uysyi")]
+visible = false
 
 [connection signal="pressed" from="CenterContainer/GridContainer/Level1" to="CenterContainer/GridContainer/Level1" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Level2" to="CenterContainer/GridContainer/Level2" method="_on_pressed"]

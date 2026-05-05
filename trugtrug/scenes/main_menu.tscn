@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://drk6gnhonbcjk"]
+[gd_scene load_steps=9 format=3 uid="uid://drk6gnhonbcjk"]
 
 [ext_resource type="Texture2D" uid="uid://ckalgynldg3hc" path="res://assets/trugmaintitle.png" id="1_6xmiy"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_g2gbe"]
 [ext_resource type="Script" path="res://scenes/title.gd" id="2_dwwp7"]
 [ext_resource type="Script" path="res://scenes/exit.gd" id="3_f4627"]
+[ext_resource type="Script" path="res://scenes/credit_button.gd" id="4_frhpj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3d5s"]
 
@@ -49,52 +50,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_6xmiy")
 
-[node name="Play" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = -67.0
-offset_right = 105.0
-offset_bottom = 67.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxEmpty_b3d5s")
-theme_override_styles/hover = SubResource("StyleBoxFlat_8sn5u")
-theme_override_styles/normal = SubResource("StyleBoxFlat_pt7wh")
-text = "Play"
-script = ExtResource("1_g2gbe")
-
-[node name="Exit" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.683642
-anchor_right = 0.5
-anchor_bottom = 0.683642
-offset_left = -61.0
-offset_top = -39.5
-offset_right = 61.0
-offset_bottom = 39.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 35
-theme_override_styles/focus = SubResource("StyleBoxEmpty_b3d5s")
-theme_override_styles/hover = SubResource("StyleBoxFlat_8sn5u")
-theme_override_styles/normal = SubResource("StyleBoxFlat_pt7wh")
-text = "Exit
-"
-script = ExtResource("3_f4627")
-metadata/_edit_use_anchors_ = true
-
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -111,5 +66,57 @@ DEFINITIVE EDITION"
 horizontal_alignment = 1
 script = ExtResource("2_dwwp7")
 
-[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
-[connection signal="pressed" from="Exit" to="Exit" method="_on_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -117.5
+offset_top = -360.0
+offset_right = 117.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b3d5s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8sn5u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pt7wh")
+text = "Play"
+script = ExtResource("1_g2gbe")
+
+[node name="credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b3d5s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8sn5u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pt7wh")
+text = "Credits
+"
+script = ExtResource("4_frhpj")
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b3d5s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8sn5u")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pt7wh")
+text = "Exit
+"
+script = ExtResource("3_f4627")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="VBoxContainer/credits" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="VBoxContainer/Exit" method="_on_pressed"]

@@ -1,14 +1,17 @@
-extends Control
+extends Button
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$AnimationPlayer.play("credits")
-	$AudioStreamPlayer2D.play()
-	await $AnimationPlayer.animation_finished
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	$".".visible = false
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if GlobalManager.level6_passed == true:
+		$".".visible = true
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")

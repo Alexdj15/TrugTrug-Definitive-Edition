@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-@export var speed: float = 0.25  # Speed as a ratio (0.0 to 1.0)
+@export var speed: float = 0.35  # Speed as a ratio (0.0 to 1.0)
 var direction: int = 1         # 1 for forward, -1 for backward
 
 func _process(delta: float):

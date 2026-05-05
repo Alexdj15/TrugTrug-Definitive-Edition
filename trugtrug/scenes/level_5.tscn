@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://dc3letqvbl2b3"]
+[gd_scene load_steps=13 format=4 uid="uid://dc3letqvbl2b3"]
 
 [ext_resource type="Script" path="res://scenes/level_5_world.gd" id="1_bdhvy"]
 [ext_resource type="Texture2D" uid="uid://c8s6kpkf3k8vx" path="res://assets/rapzerbg.png" id="1_dygdp"]
 [ext_resource type="PackedScene" uid="uid://cjovkwakrjeey" path="res://pause_menu.tscn" id="2_l3xeh"]
 [ext_resource type="Texture2D" uid="uid://demgdfjnji6x1" path="res://assets/Terrain/Terrain (16x16).png" id="3_0mfrr"]
 [ext_resource type="PackedScene" uid="uid://cju5rybawdhqf" path="res://scenes/trug.tscn" id="5_imuco"]
+[ext_resource type="Script" path="res://scenes/arrow_shooter.gd" id="6_w45tv"]
+[ext_resource type="PackedScene" uid="uid://dqnt88u1x8bxh" path="res://scenes/arrow.tscn" id="7_ajxid"]
+[ext_resource type="Texture2D" uid="uid://bjuup348wvs3a" path="res://assets/arrow_shooter.png" id="7_mg6dx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6tj0r"]
 texture = ExtResource("3_0mfrr")
@@ -275,6 +278,12 @@ texture = ExtResource("3_0mfrr")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_6tj0r")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1ksc"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo2xl"]
+size = Vector2(93, 89)
+
 [node name="level_5" type="Node2D"]
 script = ExtResource("1_bdhvy")
 
@@ -291,6 +300,7 @@ visible = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAABABEAAAAGAAQAAAABABIAAAAGAAUAAAABABMAAAAGAAYAAAACABEAAAAHAAQAAAACABIAAAAHAAUAAAACABMAAAAHAAYAAAADABEAAAAIAAQAAAADABIAAAAIAAUAAAADABMAAAAIAAYAAAAKABAAAAAIAAUAAAAKABEAAAAIAAYAAAAIAA8AAAAGAAQAAAAIABAAAAAGAAUAAAAIABEAAAAGAAYAAAAJAA8AAAAHAAQAAAAJABAAAAAHAAUAAAAJABEAAAAHAAYAAAAKAA8AAAAIAAQAAAAPAA0AAAAGAAQAAAAPAA4AAAAGAAUAAAAPAA8AAAAGAAYAAAAQAA0AAAAHAAQAAAAQAA4AAAAHAAUAAAAQAA8AAAAHAAYAAAARAA0AAAAIAAQAAAARAA4AAAAIAAUAAAARAA8AAAAIAAYAAAAbAA0AAAAIAAQAAAAbAA4AAAAIAAUAAAAbAA8AAAAIAAYAAAAaAA0AAAAHAAQAAAAaAA4AAAAHAAUAAAAaAA8AAAAHAAYAAAAZAA0AAAAGAAQAAAAZAA4AAAAGAAUAAAAZAA8AAAAGAAYAAAAzABIAAAAGAAQAAAAzABMAAAAGAAUAAAA0ABIAAAAHAAQAAAA0ABMAAAAHAAUAAAA1ABIAAAAIAAQAAAA1ABMAAAAIAAUAAAAhABIAAAAGAAQAAAAhABMAAAAGAAUAAAAhABQAAAAGAAYAAAAiABIAAAAHAAQAAAAiABMAAAAHAAUAAAAiABQAAAAHAAYAAAAjABIAAAAIAAQAAAAjABMAAAAIAAUAAAAjABQAAAAIAAYAAAAqABIAAAAGAAQAAAAqABMAAAAGAAUAAAAqABQAAAAGAAYAAAArABIAAAAHAAQAAAArABMAAAAHAAUAAAArABQAAAAHAAYAAAAsABIAAAAIAAQAAAAsABMAAAAIAAUAAAAsABQAAAAIAAYAAAAzABQAAAAGAAYAAAA0ABQAAAAHAAYAAAA1ABQAAAAIAAYAAAA=")
 tile_set = SubResource("TileSet_du35b")
 
 [node name="Trug" parent="." instance=ExtResource("5_imuco")]
@@ -302,3 +312,38 @@ limit_top = 0
 limit_right = 2195
 limit_bottom = 0
 position_smoothing_enabled = true
+
+[node name="arrow_shooter" type="StaticBody2D" parent="."]
+position = Vector2(1134, 382)
+scale = Vector2(2, 2)
+script = ExtResource("6_w45tv")
+arrow_scene = ExtResource("7_ajxid")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="arrow_shooter"]
+shape = SubResource("RectangleShape2D_m1ksc")
+
+[node name="Sprite2D" type="Sprite2D" parent="arrow_shooter"]
+texture = ExtResource("7_mg6dx")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1134, 382)
+
+[node name="win_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="win_area"]
+position = Vector2(1679.5, 529.5)
+shape = SubResource("RectangleShape2D_bo2xl")
+
+[node name="win_timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="win" type="Label" parent="."]
+visible = false
+offset_left = 1656.0
+offset_top = 443.0
+offset_right = 1847.0
+offset_bottom = 466.0
+text = " Rapzer has been tamed!"
+
+[connection signal="body_entered" from="win_area" to="." method="_on_win_area_body_entered"]
+[connection signal="timeout" from="win_timer" to="." method="_on_win_timer_timeout"]
