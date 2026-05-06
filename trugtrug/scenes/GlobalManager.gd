@@ -6,3 +6,5 @@ var level3_passed: bool = false
 var level4_passed: bool = false
 var level5_passed: bool = false
 var level6_passed: bool = false
+var level7_passed: bool = false
+var level7_unlocked: int = 0

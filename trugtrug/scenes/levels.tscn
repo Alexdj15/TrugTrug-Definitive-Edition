@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://4xv4dvu71l8g"]
+[gd_scene load_steps=18 format=3 uid="uid://4xv4dvu71l8g"]
 
 [ext_resource type="Texture2D" uid="uid://ckalgynldg3hc" path="res://assets/trugmaintitle.png" id="1_ull33"]
+[ext_resource type="Script" path="res://scenes/level_7.gd" id="1_vxyv8"]
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="2_ew305"]
 [ext_resource type="Script" path="res://scenes/title.gd" id="2_py3us"]
 [ext_resource type="Script" path="res://scenes/level_2.gd" id="3_r0ecy"]
@@ -9,6 +10,7 @@
 [ext_resource type="Script" path="res://scenes/level_5.gd" id="6_6xlgr"]
 [ext_resource type="Script" path="res://scenes/level_6.gd" id="7_g0hvb"]
 [ext_resource type="PackedScene" uid="uid://cjovkwakrjeey" path="res://pause_menu.tscn" id="9_uysyi"]
+[ext_resource type="Script" path="res://scenes/level_7_activate.gd" id="11_nu1bk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0oer"]
 
@@ -24,6 +26,8 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6vvy"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts4am"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 3
@@ -35,6 +39,10 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hrila"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j3nfx"]
 
 [node name="Levels" type="Control"]
 layout_mode = 3
@@ -82,6 +90,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_h0oer")
 theme_override_styles/hover = SubResource("StyleBoxFlat_thwec")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_v6vvy")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ts4am")
 text = "Level 1"
 script = ExtResource("2_ew305")
@@ -94,6 +103,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_h0oer")
 theme_override_styles/hover = SubResource("StyleBoxFlat_thwec")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_v6vvy")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ts4am")
 text = "Level 2"
 script = ExtResource("3_r0ecy")
@@ -106,6 +116,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_h0oer")
 theme_override_styles/hover = SubResource("StyleBoxFlat_thwec")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_v6vvy")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ts4am")
 text = "Level 3"
 script = ExtResource("4_0msbs")
@@ -118,6 +129,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_h0oer")
 theme_override_styles/hover = SubResource("StyleBoxFlat_thwec")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_v6vvy")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ts4am")
 text = "Level 4"
 script = ExtResource("5_qcih5")
@@ -130,6 +142,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_h0oer")
 theme_override_styles/hover = SubResource("StyleBoxFlat_thwec")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_v6vvy")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ts4am")
 text = "Level 5"
 script = ExtResource("6_6xlgr")
@@ -142,6 +155,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_h0oer")
 theme_override_styles/hover = SubResource("StyleBoxFlat_thwec")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_v6vvy")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ts4am")
 text = "Level 6"
 script = ExtResource("7_g0hvb")
@@ -165,9 +179,40 @@ script = ExtResource("2_py3us")
 [node name="pause_menu" parent="UI" instance=ExtResource("9_uysyi")]
 visible = false
 
+[node name="Level7" type="Button" parent="."]
+visible = false
+z_index = 10
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+offset_left = 907.0
+offset_top = 348.0
+offset_right = 1057.0
+offset_bottom = 498.0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h0oer")
+theme_override_styles/hover = SubResource("StyleBoxFlat_thwec")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_v6vvy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ts4am")
+text = "Level 7"
+script = ExtResource("1_vxyv8")
+
+[node name="level_7_activate" type="Button" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 569.0
+offset_right = 90.0
+offset_bottom = 625.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hrila")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j3nfx")
+script = ExtResource("11_nu1bk")
+
 [connection signal="pressed" from="CenterContainer/GridContainer/Level1" to="CenterContainer/GridContainer/Level1" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Level2" to="CenterContainer/GridContainer/Level2" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Level3" to="CenterContainer/GridContainer/Level3" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Level4" to="CenterContainer/GridContainer/Level4" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Level5" to="CenterContainer/GridContainer/Level5" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Level6" to="CenterContainer/GridContainer/Level6" method="_on_pressed"]
+[connection signal="pressed" from="Level7" to="Level7" method="_on_pressed"]
+[connection signal="pressed" from="level_7_activate" to="level_7_activate" method="_on_pressed"]

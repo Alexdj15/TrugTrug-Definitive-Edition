@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://drk6gnhonbcjk"]
+[gd_scene load_steps=13 format=3 uid="uid://drk6gnhonbcjk"]
 
 [ext_resource type="Texture2D" uid="uid://ckalgynldg3hc" path="res://assets/trugmaintitle.png" id="1_6xmiy"]
 [ext_resource type="Script" path="res://scenes/play.gd" id="1_g2gbe"]
 [ext_resource type="Script" path="res://scenes/title.gd" id="2_dwwp7"]
 [ext_resource type="Script" path="res://scenes/exit.gd" id="3_f4627"]
 [ext_resource type="Script" path="res://scenes/credit_button.gd" id="4_frhpj"]
+[ext_resource type="Script" path="res://scenes/level_7_activate.gd" id="6_uheh5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3d5s"]
 
@@ -20,6 +21,8 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hmxks"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pt7wh"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 3
@@ -31,6 +34,10 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1n0k3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jilgi"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -87,6 +94,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b3d5s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8sn5u")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hmxks")
 theme_override_styles/normal = SubResource("StyleBoxFlat_pt7wh")
 text = "Play"
 script = ExtResource("1_g2gbe")
@@ -99,6 +107,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b3d5s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8sn5u")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hmxks")
 theme_override_styles/normal = SubResource("StyleBoxFlat_pt7wh")
 text = "Credits
 "
@@ -111,12 +120,24 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/focus = SubResource("StyleBoxEmpty_b3d5s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8sn5u")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hmxks")
 theme_override_styles/normal = SubResource("StyleBoxFlat_pt7wh")
 text = "Exit
 "
 script = ExtResource("3_f4627")
 metadata/_edit_use_anchors_ = true
 
+[node name="level_7_activate" type="Button" parent="."]
+layout_mode = 0
+offset_left = 796.0
+offset_top = 53.0
+offset_right = 852.0
+offset_bottom = 109.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1n0k3")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jilgi")
+script = ExtResource("6_uheh5")
+
 [connection signal="pressed" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/credits" to="VBoxContainer/credits" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="VBoxContainer/Exit" method="_on_pressed"]
+[connection signal="pressed" from="level_7_activate" to="level_7_activate" method="_on_pressed"]
