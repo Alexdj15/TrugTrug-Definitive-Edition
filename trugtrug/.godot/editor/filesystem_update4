@@ -18,3 +18,7 @@ res://scenes/level_7.gd
 res://scenes/level_7_world.gd
 res://scenes/GlobalManager.gd
 res://scenes/level_7_activate.gd
+res://scenes/arrow_shooter.gd
+res://scenes/arrow_shooter_6.gd
+res://scenes/arrow.gd
+res://scenes/credits.gd

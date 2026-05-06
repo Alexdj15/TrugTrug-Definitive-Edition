@@ -6,6 +6,9 @@ var direction = Vector2.LEFT # Defaulting to left
 
 func _process(delta):
 	position += direction * speed * delta
+	if get_parent().name == "level_6":
+		if global_position.x <= 1325:
+			queue_free()
 
 # Optional: Delete arrow when it leaves the screen
 func _on_visible_on_screen_notifier_2d_screen_exited():

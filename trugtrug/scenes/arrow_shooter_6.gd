@@ -17,10 +17,6 @@ func shoot():
 		arrow1.global_position = $"../Marker2D1".global_position
 		arrow1.direction = Vector2.LEFT
 		get_tree().current_scene.add_child(arrow1)
-		var arrow2 = arrow_scene.instantiate()
-		arrow2.global_position = $"../Marker2D2".global_position
-		arrow2.direction = Vector2.LEFT
-		get_tree().current_scene.add_child(arrow2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
