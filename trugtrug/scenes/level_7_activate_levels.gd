@@ -12,7 +12,6 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	if GlobalManager.level7_mainmenu == false:
+	if GlobalManager.level7_levels == false:
 		GlobalManager.level7_unlocked += 1
-		GlobalManager.level7_mainmenu = true
-	
+		GlobalManager.level7_levels = true
