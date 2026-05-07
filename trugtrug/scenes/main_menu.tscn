@@ -129,10 +129,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="level_7_activate" type="Button" parent="."]
 layout_mode = 0
-offset_left = 796.0
-offset_top = 53.0
-offset_right = 852.0
-offset_bottom = 109.0
+offset_left = 660.0
+offset_top = 49.0
+offset_right = 716.0
+offset_bottom = 105.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1n0k3")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jilgi")
 script = ExtResource("6_uheh5")

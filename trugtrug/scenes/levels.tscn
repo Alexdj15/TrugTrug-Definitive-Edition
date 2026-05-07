@@ -184,9 +184,9 @@ visible = false
 z_index = 10
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-offset_left = 907.0
+offset_left = 948.0
 offset_top = 348.0
-offset_right = 1057.0
+offset_right = 1098.0
 offset_bottom = 498.0
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -200,10 +200,10 @@ script = ExtResource("1_vxyv8")
 
 [node name="level_7_activate" type="Button" parent="."]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 569.0
-offset_right = 90.0
-offset_bottom = 625.0
+offset_left = 550.0
+offset_top = 43.0
+offset_right = 606.0
+offset_bottom = 99.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hrila")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_j3nfx")
 script = ExtResource("11_yei5x")
