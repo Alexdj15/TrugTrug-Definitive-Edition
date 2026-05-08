@@ -137,6 +137,17 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_1n0k3")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jilgi")
 script = ExtResource("6_uheh5")
 
+[node name="level_7_label1" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 665.0
+offset_top = 4.0
+offset_right = 711.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1/2"
+
 [connection signal="pressed" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/credits" to="VBoxContainer/credits" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="VBoxContainer/Exit" method="_on_pressed"]

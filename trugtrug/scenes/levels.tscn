@@ -200,13 +200,24 @@ script = ExtResource("1_vxyv8")
 
 [node name="level_7_activate" type="Button" parent="."]
 layout_mode = 0
-offset_left = 550.0
+offset_left = 542.0
 offset_top = 43.0
-offset_right = 606.0
+offset_right = 598.0
 offset_bottom = 99.0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hrila")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_j3nfx")
 script = ExtResource("11_yei5x")
+
+[node name="level_7_label2" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 542.0
+offset_top = 6.0
+offset_right = 588.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1/2"
 
 [connection signal="pressed" from="CenterContainer/GridContainer/Level1" to="CenterContainer/GridContainer/Level1" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/GridContainer/Level2" to="CenterContainer/GridContainer/Level2" method="_on_pressed"]
