@@ -87,7 +87,7 @@ script = ExtResource("3_qddj5")
 [node name="trugtrug#1fan" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "u/TrugTrugNumber1Fan - Title art & Promotion"
+text = "u/TrugTrugNumber1Fan - Title art"
 horizontal_alignment = 1
 script = ExtResource("3_qddj5")
 
